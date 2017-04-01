@@ -1,0 +1,33 @@
+group 'com.fieldju'
+version '1.0.0'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+
+apply from: file('gradle/bintray.gradle')
+
+sourceCompatibility = 1.5
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}

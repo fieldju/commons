@@ -1,0 +1,13 @@
+language: java
+jdk:
+- oraclejdk8
+cache:
+  directories:
+  - "$HOME/.m2"
+after_success:
+- test "${TRAVIS_PULL_REQUEST}" == "false" && test "${TRAVIS_TAG}" != "" && ./gradlew
+  bintrayUpload --stacktrace
+env:
+  global:
+  - secure: PLYCVWC2wMIdALu/L+WwztZpbliVKFhQO0S0Ophhcf8jPqhf68z6kZBng8B+W47k57J0B7jfn0uicTUPvgcvhgirZM3pba/2hOCeGvpgdVxo3A/SQyRHDLs4IegMDfE+sUhF+gh9vKd+FtToM5QYb+UgVp7/dmF2l/jgCLIC2M9z4+Ope2SEKOhCwmHzX0xZxa2RNVenyBbYk42YZtfGEu3+9cj2t8n8LmYgTcSOhdCODUQ+ItdWkVvSFTBpH/7384hJQhS5xR6Kavk9qIu6FmJOj3uc9q4Mffpqj1UaDLtfGnf7e3UXzIQlgOoTl7caEydyg+I3OBipeCLiSjYPihsknJ79/lYRc3AhTkqGR0B1+eYWjpwrnTmKW4NnYiOv88AQnQ7NJ0H5X1eDAwr7qQWTPr4kwILbXnWkU7wX2WYQU9NlH3k+sSRY06TTmYJur7uMmhSHplQriymbEzfvoc4X48uYHFOjdJKBSPtM1ClfC8ytsHd7P+q1Ri30AasIOQFFNnB/e0pghxlTiaxKkodeEbWVGAU5+CAwCZit+4Q4FD+EuGAUkAOLpLjmO0BdUmvdYKD0nVcL4MOO74CM7LF0AYc/HAW6NkBTeDAV+n6ldItVBKbhmuBK7t45tw6v2iNWH5gXUPsXcSdY98uPomDWOSXBM3dbw+ZZjbGIx0s=
+  - secure: JnLDER6mddc4cwiVpEQGHkLLZ8u4yNBIN+SDyb3pPnGWnvfrX1SL6zi0TPLqADCJj3MJmZ0NkMMhpKgFjn/riIUgDg6OjAYjI548eRY6LnDlvC32EucGSw+GQnLWidoUs/T1ye3onOVtEIn97crdKWyPzU5YM/Dmu45s/gOmpMpl+wHyW6AHk/RHmQaXxnv0qCuHwi0ZzwhXrk+Kfq8sRY7Thw+teHayrIxJ07yL6I09YyWT0YRVOgr5GPjM6RIZa5ywPLojcyk/CoEbIrUSnsYo97/6henzykxFAyFJ/A9hffmhfNbLNUvKb37Hv++owS3rl0ecHxcH+GwyY8dcFm2bAxM+w61DCJhzoKPKAPmq5THczwf/i0Orut+91jRaG9t24yKtVG6OFJyU8+SzGckhhscc8YzVqfUYBmbEdYh45fWKR8cYWhxExfcdnowo0rWiAABhUXToW/2+V2CyuAEAChCM6sdsV1KIP8R/bWeBVU4fwG37+XNKyPHHVVjpA6bI1hT+tc0hVhrZgER0NXe1ArPHpoAL1GSVXad0NHQnKFm9H65iuq7vUUYhMEsvPG8ObaXZvzNNqI0gYZurZ5Av5iwcQRKl1MEVskFd1L46qnSZO+HMUQZGf10S/wk8dTr7+qhBQN+0UctPVsbyEA3TW9/85bcL4FKc/gNZAis=
