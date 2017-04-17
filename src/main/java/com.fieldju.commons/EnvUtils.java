@@ -34,7 +34,7 @@ public class EnvUtils {
                     .append(" was not set or is blank.");
 
             if (StringUtils.isNotBlank(msg)) {
-                sb.append("Msg: ").append(msg);
+                sb.append(" Msg: ").append(msg);
             }
 
             throw new IllegalStateException(sb.toString());
